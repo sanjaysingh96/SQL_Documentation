@@ -1,0 +1,57 @@
+show
+update stpro set gender='female' where id=6
+
+update stpro set age=22  where id in (2,3,7)
+
+create proc khus
+as
+begin
+select * from stpro where age>=@min and age<=@max
+order by age 
+end
+
+ khus 18,22
+
+
+
+ alter table mytbl add d_date varchar(20)
+
+
+
+ create proc push(@in as varchar(max))
+ as 
+ begin
+ declare @data
+ alter table stpro 
+ add set @data=@in varchar(max)
+ end
+
+ sp_rename 'stpro','mytbl'
+
+
+ select * from mytbl 
+
+
+ alter database stu modify name =ilovechetu
+
+ create proc delrow(@del as int)
+ as
+ begin
+ delete mytbl where id = @del
+ end
+
+ delrow 8
+
+alter proc ad(@idd as int,@mail as varchar(max))
+ as 
+ begin
+ update mytbl set email= @mail where id=@idd
+ end
+
+ ad 4,'amit@yaaho.com'
+
+
+ sp_rename 'mytbl.addcolunm','salary'
+
+ alter table mytbl
+ alter salary int 
